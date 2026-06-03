@@ -9,4 +9,6 @@ public interface ITodoService
     Task AddTodoAsync(TodoModel todoModel);
 
     Task DeleteTodoAsync(Guid id);
+    
+    Task UpdateTodoAsync(TodoModel todo);
 }

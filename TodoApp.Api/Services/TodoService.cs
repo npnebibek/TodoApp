@@ -19,4 +19,9 @@ public class TodoService: ITodoService
     {
         throw new NotImplementedException();
     }
+
+    public Task UpdateTodoAsync(TodoModel todo)
+    {
+        throw new NotImplementedException();
+    }
 }
