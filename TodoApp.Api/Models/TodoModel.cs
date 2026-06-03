@@ -2,7 +2,7 @@ namespace TodoApp.Api.Models;
 
 public class TodoModel
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = new();
     
     public string Title { get; set; } = string.Empty;
     
