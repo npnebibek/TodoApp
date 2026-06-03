@@ -22,6 +22,6 @@ export class TodoService {
   }
 
   updateTodo(todo: Todo): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${todo.id}`, todo);
+    return this.http.put<void>(this.apiUrl, todo);
   }
 }

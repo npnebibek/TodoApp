@@ -24,7 +24,7 @@ public class TodoController: ControllerBase
     public async Task<IActionResult> Create(TodoModel todo)
     {
         await _todoService.AddTodoAsync(todo);
-        return Ok();
+        return CreatedAtAction(nameof(GetAll), new { id = todo.Id }, todo);
     }
     
     [HttpDelete("{id:guid}")]

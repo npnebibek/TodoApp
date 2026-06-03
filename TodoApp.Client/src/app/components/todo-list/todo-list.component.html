@@ -1,13 +1,42 @@
-<div class="todo-container">
-  <h1>Todo List</h1>
-  <ul>
+<div class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-xl">
+  <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">To Do</h1>
+  <div class="flex gap-2 mb-4">
+    <input
+      [formControl]="newTodoTitle"
+      (keyup.enter)="add()"
+      class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 "
+      placeholder="What needs to be done?"
+      type="text"
+    >
+    <button
+      (click)="add()"
+      [disabled]="newTodoTitle.invalid"
+      class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition cursor-pointer"
+    >
+      Add
+    </button>
+  </div>
+  <ul class="space-y-3">
     @for (todo of todos(); track todo.id) {
-      <li>
-        <span>{{ todo.title }}</span>
-        <button (click)="delete(todo.id)">Delete</button>
+      <li class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+        <input
+          type="checkbox"
+          [checked]="todo.isCompleted"
+          (change)="toggleComplete(todo)"
+          class="w-5 h-5 accent-blue-600 cursor-pointer"
+        >
+        <span class="flex-1 text-gray-700 font-medium" [class.line-through]="todo.isCompleted">
+          {{ todo.title }}
+        </span>
+        <button
+          (click)="delete(todo.id!)"
+          class="text-red-500 hover:text-red-700 text-sm font-medium cursor-pointer"
+        >
+          Delete
+        </button>
       </li>
     } @empty {
-      <p>No tasks found. Start by adding one!</p>
+      <p class="text-center text-gray-400 italic">No tasks yet. Add one above!</p>
     }
   </ul>
 </div>
