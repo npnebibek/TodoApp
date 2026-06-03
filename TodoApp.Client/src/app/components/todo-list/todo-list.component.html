@@ -1,1 +1,13 @@
-<p>todo-list works!</p>
+<div class="todo-container">
+  <h1>Todo List</h1>
+  <ul>
+    @for (todo of todos(); track todo.id) {
+      <li>
+        <span>{{ todo.title }}</span>
+        <button (click)="delete(todo.id)">Delete</button>
+      </li>
+    } @empty {
+      <p>No tasks found. Start by adding one!</p>
+    }
+  </ul>
+</div>
