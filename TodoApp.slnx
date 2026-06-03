@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="TodoApp.Api.Tests/TodoApp.Api.Tests.csproj" />
+  <Project Path="TodoApp.Api\TodoApp.Api.csproj" Type="C#" />
+  <Project Path="TodoApp.Client\todo-app.esproj">
+    <Configuration Solution="Release|Any CPU" Project="Debug|Any CPU" />
+  </Project>
+</Solution>
