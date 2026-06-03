@@ -5,23 +5,36 @@ namespace TodoApp.Api.Services;
 
 public class TodoService: ITodoService
 {
-    public Task<List<TodoModel>> GetTodosAsync()
+    private readonly List<TodoModel> _todos = new();
+    
+    public async Task<List<TodoModel>> GetTodosAsync()
     {
-        throw new NotImplementedException();
+        return await Task.FromResult(_todos.ToList());
     }
 
-    public Task AddTodoAsync(TodoModel todoModel)
+    public async Task AddTodoAsync(TodoModel todoModel)
     {
-        throw new NotImplementedException();
+        _todos.Add(todoModel);
+        await Task.CompletedTask;
     }
 
-    public Task DeleteTodoAsync(Guid id)
+    public async Task DeleteTodoAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var todo = _todos.FirstOrDefault(t => t.Id == id);
+        if (todo != null)
+        {
+            _todos.Remove(todo);
+        }
+        await Task.CompletedTask;
     }
 
-    public Task UpdateTodoAsync(TodoModel todo)
-    {
-        throw new NotImplementedException();
+    public async Task UpdateTodoAsync(TodoModel todo)
+    { 
+        var index = _todos.FindIndex(t => t.Id == todo.Id);
+        if (index != -1)
+        {
+            _todos[index] = todo;
+        }
+        await Task.CompletedTask;
     }
 }
