@@ -32,7 +32,7 @@ The api should start running on http://localhost:5200 or check the console what 
 ### Running the Frontend
 1. Navigate to the frontend folder
     ```bash
-    cd TodoApp.CLient
+    cd TodoApp.Client
 
 2. Install dependencies:
     ```bash
